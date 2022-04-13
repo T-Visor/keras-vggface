@@ -6,10 +6,10 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 
 #custom parameters
-nb_class = 2
+nb_class = 7
 hidden_dim = 512
 
-vgg_model = VGGFace(include_top=False, input_shape=(224, 224, 3))
+vgg_model = VGGFace(include_top=False, input_shape=(200, 200, 3))
 last_layer = vgg_model.get_layer('pool5').output
 x = Flatten(name='flatten')(last_layer)
 x = Dense(hidden_dim, activation='relu', name='fc6')(x)
@@ -28,12 +28,12 @@ dataset = 'cropped/images'
 # prepare iterators
 train_it = datagen.flow_from_directory(dataset,
                                         class_mode='categorical', 
-                                        batch_size=64, 
+                                        batch_size=16, 
                                         target_size=(200, 200))
 
 test_it = datagen.flow_from_directory(dataset,
                                       class_mode='categorical', 
-                                      batch_size=64, 
+                                      batch_size=16, 
                                       target_size=(200, 200))
 
 # fit model
