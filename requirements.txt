@@ -7,3 +7,4 @@ six>=1.9.0
 pyyaml
 tensorflow
 tensorflow-gpu
+mtcnn
