@@ -3,6 +3,7 @@ scipy>=0.14
 h5py
 pillow
 keras
+keras_applications
 six>=1.9.0
 pyyaml
 tensorflow
